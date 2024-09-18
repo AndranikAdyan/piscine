@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:56:51 by aadyan            #+#    #+#             */
-/*   Updated: 2024/09/17 19:00:02 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/09/18 18:38:08 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 		++i;
 		++j;
 	}
+	dest[i] = '\0';
 	return (dest);
 }
 /*
