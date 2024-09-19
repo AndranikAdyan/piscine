@@ -6,51 +6,62 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 19:17:03 by aadyan            #+#    #+#             */
-/*   Updated: 2024/09/17 19:57:59 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/09/19 15:34:30 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+		++i;
+	return (i);
+}
 
 char	*ft_strstr(char *str, char *to_find)
 {
 	int		i;
-	int		j;
-	char	*s;
-	char	*start;
+	int		k;
+	int		size;
 
 	if (!to_find[0])
 		return (str);
-	s = str;
+	size = ft_strlen(to_find);
 	i = 0;
-	while (*s)
+	k = 0;
+	while (str[i])
 	{
-		if (*s == to_find[i])
+		if (str[i] == to_find[k])
 		{
-			if (i == 0)
-				start = s;
-			++i;
+			k++;
+			if (k == size)
+				return (str + i - size + 1);
 		}
-		s++;
+		else
+		{
+			i = i - k;
+			k = 0;
+		}
+		i++;
 	}
-	j = 0;
-	while (to_find[j])
-		++j;
-	if (i == j)
-		return (start);
 	return (0);
 }
 /*
 #include <stdio.h> 
 #include <string.h>
-int main (void)
+int main(void)
 {
-	char str1 [11]="0123456789";
-	char str2 [10]="";
+	char str1 [100]="Hello, world wrld";
+	char str2 [100]="";
 	char *istr;
 
 	istr = strstr(str1, str2);
-	printf ("strstr: %s\n", istr);
+	printf ("strstr:\t\t%s\n", istr);
 
 	istr = ft_strstr(str1, str2);
-	printf ("ft_strstr: %s\n", istr);
-   return 0;
-}*/
+	printf ("ft_strstr:\t%s\n", istr);
+	return 0;
+}
+*/

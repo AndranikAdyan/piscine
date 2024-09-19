@@ -6,7 +6,7 @@
 /*   By: aadyan <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/17 18:28:17 by aadyan            #+#    #+#             */
-/*   Updated: 2024/09/17 18:38:26 by aadyan           ###   ########.fr       */
+/*   Updated: 2024/09/19 15:37:03 by aadyan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 #include <stdio.h>
 int main()
 {
-	char *s1 = "Hello";
-	char *s2 = "Hello";
-	int n = 5;
+	char *s1 = "";
+	char *s2 = "Hellosdjsa";
+	int n = 0;
 	printf("strncmp: %d\n", strncmp(s1, s2, n));
 	printf("ft_strncmp: %d", ft_strncmp(s1, s2, n));
 	return (0);
