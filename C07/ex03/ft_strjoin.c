@@ -22,53 +22,56 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
-char *ft_strjoin(int size, char **strs, char *sep)
+int	get_len(int size, char **strs, char *sep)
 {
-	int		i;
-	int		j;
-	int		index;
-	char	*str;
-	int		len;
-	
+	int	len;
+	int	i;
+
 	len = 0;
-	while (strs[i])
+	i = 0;
+	while (i < size)
 		len += ft_strlen(strs[i++]);
-	len += sizeof(sep) * (size - 1);
-	str = (char *)malloc((len + 1) * sizeof(char));
+	len += (ft_strlen(sep) * (size - 1));
+	return (len);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
+{
+	int	i;
+	int	j;
+	int	index;
+	char	*str;
+
+	str = (char *)malloc((get_len(size, strs, sep) + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	if (size == 0)
+		return (str);
 	i = 0;
 	index = 0;
-	while (strs[i])
+	while (i < size)
 	{
 		j = 0;
 		while (strs[i][j])
 			str[index++] = strs[i][j++];
 		j = 0;
-		if (i != size)
+		if (i != size - 1)
 			while (sep[j])
 				str[index++] = sep[j++];
 		++i;
 	}
+	str[index] = 0;
 	return (str);
 }
-
+/*
 #include <stdio.h>
-int main()
+int     main()
 {
-	char **words = {"hello", "world", "Anush"};
-
-	char *str;
-	str = ft_strjoin(3, words, ", ");
-	int i = 0;
-	while (str[i])
-	{
-		printf("%c", str[i]);
-		++i;
-	}
+        char    *str;
+        char *strs[5] = {"felipe", "de", "paula", "alves", "montes"};
+        str = ft_strjoin(5, strs, " ");
+        printf("%s\n", str);
+ 	free(str);
+	return (0);
 }
-
-
-
-
-
-
-
+*/
